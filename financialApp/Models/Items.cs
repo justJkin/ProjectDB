@@ -13,5 +13,6 @@ namespace financialApp.Models
         public int ItemID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
+        //nigger
     }
 }
