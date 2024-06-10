@@ -1,0 +1,53 @@
+<Window x:Class="financialApp.Views.UserDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FinancialApp" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Boczne menu -->
+        <StackPanel Background="#152d24" Grid.Column="0">
+            <TextBlock Text="Welcome" FontSize="20" FontWeight="Bold" Foreground="White" Margin="10" HorizontalAlignment="Center"/>
+            <TextBlock Text="Logged in as:" FontWeight="Bold" Foreground="White" Margin="10 0 0 10"/>
+            <TextBlock Text="{Binding Username}" FontSize="16" Foreground="White" Margin="10"/>
+            <TextBlock Text="{Binding Email}" FontSize="16" Foreground="White" Margin="10"/>
+            <!-- Miejsce na dodatkowe elementy -->
+            <Button Content="Check graphs" Margin="10" Width="180" Click="ViewTransactions_Click"/>
+            <Button Content="Logout" Margin="10" Width="180" Click="Logout_Click"/>
+        </StackPanel>
+
+        <!-- Prawa strona podzielona na 3 sekcje -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" Orientation="Horizontal">
+                    <Button Content="Add incomes" Width="100" Margin="5" Click="AddIncomes_Click"/>
+                    <TextBlock Text="Total Transactions Amount: " FontSize="16" Margin="5"/>
+                    <TextBlock Text="{Binding TotalTransactionsAmount}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+                    <Button Content="Add spendings" Width="100" Margin="5" Click="AddSpendings_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Background="LightGray">
+                    <!-- Lewa dolna sekcja -->
+                    <TextBlock Text="Lewa dolna sekcja" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Background="LightGray">
+                    <!-- Prawa dolna sekcja -->
+                    <TextBlock Text="Prawa dolna sekcja" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
